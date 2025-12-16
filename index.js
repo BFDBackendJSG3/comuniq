@@ -23,9 +23,15 @@ async function fetchHtml(url){
 async function scrape(html) {
   const $ = cheerio.load(html);
 
-  const title = $("title").text();
+  const title = $("h1").text();
+  const body = $("body").text()
+  //const full = $('body').html()
 
   console.log(title);
+  console.log(body);
+  
+  //console.log(full);
+  
 }
 
 async function main() {
