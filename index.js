@@ -2,7 +2,6 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 
-
 async function fetchHtml(url){
     try{
         const response = await axios.get(url,{
@@ -21,16 +20,40 @@ async function fetchHtml(url){
 }
 
 async function scrape(html) {
+  paragraphs = [];
+  let date = null;
+  let author = null;
+
+  // Carregar o html para manipulação
   const $ = cheerio.load(html);
 
-  const title = $("h1").text();
-  const body = $("body").text()
-  //const full = $('body').html()
-
-  console.log(title);
-  console.log(body);
   
-  //console.log(full);
+  const timeEl = $("article time").first();
+
+  if (timeEl.length) {
+    date = timeEl.attr("datetime") || timeEl.text().trim();
+  }
+
+  author = $(".top__signature__text__author-name").text();
+
+  const dateText = $(".content-publication-data__updated").first().text().trim();
+
+  const title = $("h1").text();
+  $("article p").each((_, el) => {
+    const text = $(el).text().trim();
+    if (text.length > 0) {
+      paragraphs.push(text);
+    }
+  });
+
+  const body = paragraphs.join("\n\n");
+
+  console.log("Título: ", title);
+  console.log("Data: ", dateText);
+  console.log("Autor:", author);
+  console.log("Parágrafos:", paragraphs.length);
+
+
   
 }
 
