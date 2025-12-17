@@ -67,6 +67,8 @@ async function main() {
   scrape(html);
 }
 
-main();
-
+module.exports = {
+    fetchHtml,
+    scrape
+}
 
