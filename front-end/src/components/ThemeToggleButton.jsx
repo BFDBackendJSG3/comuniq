@@ -2,7 +2,7 @@ import {useTheme} from "../hooks/useTheme";
 
 function ThemeToggleButton() {
 
-    const {setTheme} = useTheme()
+    const { setTheme } = useTheme()
 
     return (
         <div className="flex flex-col">
