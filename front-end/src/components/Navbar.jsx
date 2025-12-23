@@ -71,7 +71,7 @@ function Navbar() {
                         <Link to="/sobre" className="block px-4 py-2" onClick={() => setIsMenuOpen(false)}>
                             Sobre
                         </Link>
-                        <Link to="/" className="block px-4 py-2" onClick={() => setIsMenuOpen(false)}>
+                        <Link to="/login" className="block px-4 py-2" onClick={() => setIsMenuOpen(false)}>
                             Login
                         </Link>
                     </div>
