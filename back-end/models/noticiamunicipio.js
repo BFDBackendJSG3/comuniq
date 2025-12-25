@@ -1,5 +1,5 @@
-'use strict';
-const { Model } = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class NoticiaMunicipio extends Model {
@@ -7,20 +7,23 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  NoticiaMunicipio.init({
-    noticiaId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+  NoticiaMunicipio.init(
+    {
+      noticiaId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      municipioId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
-    municipioId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+    {
+      sequelize,
+      modelName: "NoticiaMunicipio",
+      tableName: "NoticiaMunicipios",
     }
-  }, {
-    sequelize,
-    modelName: 'NoticiaMunicipio',
-    tableName: 'NoticiaMunicipios'
-  });
+  );
 
   return NoticiaMunicipio;
 };
