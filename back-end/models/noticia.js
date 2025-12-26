@@ -1,38 +1,38 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Noticia extends Model {
     static associate(models) {
       // Notícia pertence a uma Fonte
       Noticia.belongsTo(models.Fonte, {
-        foreignKey: "fonteId",
-        as: "fonte",
+        foreignKey: 'fonteId',
+        as: 'fonte',
       });
 
       // Notícia pertence a um TemaPrincipal
       Noticia.belongsTo(models.TemaPrincipal, {
-        foreignKey: "temaPrincipalId",
-        as: "temaPrincipal",
+        foreignKey: 'temaPrincipalId',
+        as: 'temaPrincipal',
       });
 
       // Relacionamento N:N com Município
       Noticia.belongsToMany(models.Municipio, {
         through: models.NoticiaMunicipio,
-        foreignKey: "noticiaId",
-        otherKey: "municipioId",
-        as: "municipios",
+        foreignKey: 'noticiaId',
+        otherKey: 'municipioId',
+        as: 'municipios',
       });
 
       // Notícia tem várias Tags
       Noticia.hasMany(models.TagAssociada, {
-        foreignKey: "noticiaId",
-        as: "tags",
+        foreignKey: 'noticiaId',
+        as: 'tags',
       });
 
       Noticia.hasMany(models.Favorito, {
-        foreignKey: "noticiaId",
-        as: "favoritos",
+        foreignKey: 'noticiaId',
+        as: 'favoritos',
       });
     }
   }
@@ -50,8 +50,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Noticia",
-      tableName: "Noticias",
+      modelName: 'Noticia',
+      tableName: 'Noticias',
     }
   );
   return Noticia;

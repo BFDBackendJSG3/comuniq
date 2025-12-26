@@ -1,14 +1,14 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Municipio extends Model {
     static associate(models) {
       Municipio.belongsToMany(models.Noticia, {
         through: models.NoticiaMunicipio,
-        foreignKey: "municipioId",
-        otherKey: "noticiaId",
-        as: "noticias",
+        foreignKey: 'municipioId',
+        otherKey: 'noticiaId',
+        as: 'noticias',
       });
     }
   }
@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Municipio",
-      tableName: "Municipios",
+      modelName: 'Municipio',
+      tableName: 'Municipios',
     }
   );
 

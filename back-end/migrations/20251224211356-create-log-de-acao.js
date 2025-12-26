@@ -7,41 +7,41 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
           model: 'Users',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+        onDelete: 'SET NULL',
       },
       acao: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       entidade: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       entidadeId: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: true,
       },
       descricao: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('NOW')
+        defaultValue: Sequelize.fn('NOW'),
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
 
     await queryInterface.addIndex('LogDeAcoes', ['userId']);
@@ -50,5 +50,5 @@ module.exports = {
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('LogDeAcoes');
-  }
+  },
 };

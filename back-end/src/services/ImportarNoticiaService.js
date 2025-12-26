@@ -12,7 +12,10 @@ module.exports = {
     const $ = cheerio.load(html);
 
     const titulo = $('title').first().text();
-    const conteudo = $('p').map((i, el) => $(el).text()).get().join('\n');
+    const conteudo = $('p')
+      .map((i, el) => $(el).text())
+      .get()
+      .join('\n');
 
     // Busca ou cria a Fonte
     let fonte = await Fonte.findOne({ where: { url } });
@@ -22,7 +25,7 @@ module.exports = {
         responsavel: 'Fonte externa',
         tipo: 'site',
         url,
-        status: 'ativa'
+        status: 'ativa',
       });
     }
 
@@ -34,10 +37,9 @@ module.exports = {
       status: 'rascunho',
       tipoNoticia: 'importada',
       fonteId: fonte.id,
-      temaPrincipalId
+      temaPrincipalId,
     });
 
     return noticia;
-  }
+  },
 };
-

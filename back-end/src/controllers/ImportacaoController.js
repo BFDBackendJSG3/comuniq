@@ -7,18 +7,17 @@ class ImportacaoController {
 
       const noticia = await ImportarNoticiaService.execute({
         url,
-        temaPrincipalId
+        temaPrincipalId,
       });
 
       return res.status(201).json(noticia);
     } catch (error) {
       console.error(error);
       return res.status(500).json({
-        erro: 'Erro ao importar notícia'
+        erro: 'Erro ao importar notícia',
       });
     }
   }
 }
 
 module.exports = new ImportacaoController();
-

@@ -1,19 +1,19 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class TemaPrincipal extends Model {
     static associate(models) {
       // Um tema pode ter vários subtemas
       TemaPrincipal.hasMany(models.TemaPrincipal, {
-        foreignKey: "parentId",
-        as: "subtemas",
+        foreignKey: 'parentId',
+        as: 'subtemas',
       });
 
       // Um subtema pertence a um tema pai
       TemaPrincipal.belongsTo(models.TemaPrincipal, {
-        foreignKey: "parentId",
-        as: "temaPai",
+        foreignKey: 'parentId',
+        as: 'temaPai',
       });
     }
   }
@@ -26,8 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "TemaPrincipal",
-      tableName: "TemasPrincipais",
+      modelName: 'TemaPrincipal',
+      tableName: 'TemasPrincipais',
     }
   );
 

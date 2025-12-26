@@ -7,62 +7,67 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       titulo: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       conteudo: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
       },
       url: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       dataDePublicacao: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       dataDeImportacao: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       status: {
-        type: Sequelize.ENUM('rascunho', 'aguardando_revisao', 'publicado', 'suspenso'),
+        type: Sequelize.ENUM(
+          'rascunho',
+          'aguardando_revisao',
+          'publicado',
+          'suspenso'
+        ),
         allowNull: false,
-        defaultValue: 'rascunho'
+        defaultValue: 'rascunho',
       },
       tipoNoticia: {
         type: Sequelize.ENUM('importada', 'criada'),
-        allowNull: false
+        allowNull: false,
       },
       fonteId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'Fontes',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
+        onDelete: 'RESTRICT',
       },
       temaPrincipalId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'TemasPrincipais',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
+        onDelete: 'RESTRICT',
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
 
     // Índices importantes
@@ -74,5 +79,5 @@ module.exports = {
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Noticias');
-  }
+  },
 };

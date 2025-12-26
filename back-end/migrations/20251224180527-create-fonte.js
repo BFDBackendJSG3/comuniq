@@ -7,45 +7,45 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       responsavel: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       tipo: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       url: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       dadosDeContato: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       outrosLinks: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       classeTitulo: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       classeCorpo: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
 
     await queryInterface.addIndex('Fontes', ['url']);
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Fontes');
-  }
+  },
 };

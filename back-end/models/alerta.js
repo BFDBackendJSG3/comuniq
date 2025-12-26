@@ -1,25 +1,25 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Alerta extends Model {
     static associate(models) {
       // Alerta pertence a um usuário
       Alerta.belongsTo(models.User, {
-        foreignKey: "userId",
-        as: "usuario",
+        foreignKey: 'userId',
+        as: 'usuario',
       });
 
       // Alerta pode estar ligado a um tema
       Alerta.belongsTo(models.TemaPrincipal, {
-        foreignKey: "temaPrincipalId",
-        as: "temaPrincipal",
+        foreignKey: 'temaPrincipalId',
+        as: 'temaPrincipal',
       });
 
       // Alerta pode estar ligado a um município
       Alerta.belongsTo(models.Municipio, {
-        foreignKey: "municipioId",
-        as: "municipio",
+        foreignKey: 'municipioId',
+        as: 'municipio',
       });
     }
   }
@@ -39,8 +39,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Alerta",
-      tableName: "Alertas",
+      modelName: 'Alerta',
+      tableName: 'Alertas',
     }
   );
 

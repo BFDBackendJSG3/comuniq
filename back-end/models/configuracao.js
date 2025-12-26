@@ -1,12 +1,12 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Configuracao extends Model {
     static associate(models) {
       // Configuração pode pertencer a um usuário
       Configuracao.belongsTo(models.User, {
-        foreignKey: "userId",
-        as: "usuario",
+        foreignKey: 'userId',
+        as: 'usuario',
       });
     }
   }
@@ -25,8 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Configuracao",
-      tableName: "Configuracoes",
+      modelName: 'Configuracao',
+      tableName: 'Configuracoes',
     }
   );
 

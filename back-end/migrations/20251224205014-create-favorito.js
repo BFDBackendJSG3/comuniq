@@ -7,46 +7,44 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'Users',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       noticiaId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: 'Noticias',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
 
     // Evita favorito duplicado (mesmo usuário + mesma notícia)
-    await queryInterface.addIndex(
-      'Favoritos',
-      ['userId', 'noticiaId'],
-      { unique: true }
-    );
+    await queryInterface.addIndex('Favoritos', ['userId', 'noticiaId'], {
+      unique: true,
+    });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Favoritos');
-  }
+  },
 };

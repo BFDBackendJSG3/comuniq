@@ -7,44 +7,44 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
           model: 'Users',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+        onDelete: 'SET NULL',
       },
       ip: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       userAgent: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       rota: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       metodo: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       dataAcesso: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.fn('NOW')
+        defaultValue: Sequelize.fn('NOW'),
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
 
     // índices úteis
@@ -53,5 +53,5 @@ module.exports = {
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('LogAcessos');
-  }
+  },
 };
