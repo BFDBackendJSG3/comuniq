@@ -1,29 +1,29 @@
-"use strict";
+'use strict';
 
 module.exports = {
   async up(queryInterface, Sequelize) {
     const temas = [
       {
-        nome: "Geral",
-        descricao: "Tema padrão",
+        nome: 'Geral',
+        descricao: 'Tema padrão',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        nome: "Política",
-        descricao: "Notícias sobre política",
+        nome: 'Política',
+        descricao: 'Notícias sobre política',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        nome: "Saúde",
-        descricao: "Notícias sobre saúde pública",
+        nome: 'Saúde',
+        descricao: 'Notícias sobre saúde pública',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        nome: "Educação",
-        descricao: "Notícias sobre educação",
+        nome: 'Educação',
+        descricao: 'Notícias sobre educação',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -42,14 +42,18 @@ module.exports = {
       );
 
       if (resultado.length === 0) {
-        await queryInterface.bulkInsert("TemasPrincipais", [tema]);
+        await queryInterface.bulkInsert('TemasPrincipais', [tema]);
       }
     }
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("TemasPrincipais", null, {});
+    await queryInterface.bulkDelete(
+      'TemasPrincipais',
+      {
+        nome: ['Geral', 'Política', 'Saúde', 'Educação'],
+      },
+      {}
+    );
   },
 };
-
-
