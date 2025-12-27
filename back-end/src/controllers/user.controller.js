@@ -50,10 +50,7 @@ class UserController {
 
   static async atualizar(req, res) {
     try {
-      const user = await UserService.atualizar(
-        req.params.id,
-        req.body
-      );
+      const user = await UserService.atualizar(req.params.id, req.body);
       return res.json(user);
     } catch (err) {
       return res.status(400).json({ error: err.message });
