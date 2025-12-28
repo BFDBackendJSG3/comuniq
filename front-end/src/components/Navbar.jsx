@@ -24,12 +24,15 @@ function Navbar() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid h-16 grid-cols-3 items-center">
           {/* Coluna 1 */}
-          <button
-            className="text-foreground justify-start"
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-          >
-            <Menu strokeWidth={1.5} />
-          </button>
+          <div className="justify-start">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+            >
+              <Menu strokeWidth={1.5} className="size-6" />
+            </Button>
+          </div>
 
           {/* Coluna 2 */}
           <div className="flex justify-center">
@@ -40,17 +43,22 @@ function Navbar() {
 
           {/* Coluna 3 */}
           <div className="flex justify-end">
-            <button
-              className="text-foreground md:hidden"
+            <Button
+              size="icon"
+              //className="border-none shadow-none"
+              variant="outline"
               onClick={() => setIsSearchMenuOpen((prev) => !prev)}
             >
-              <Search strokeWidth={1.5} />
-            </button>
+              <Search strokeWidth={1.5} className="size-6" />
+            </Button>
             {/* Desktop search */}
             <div className="hidden md:flex">
               <Input placeholder="Buscar" className="rounded-r-none" />
-              <Button className="rounded-l-none bg-green-700 shadow-xs hover:bg-green-800">
-                <Search />
+              <Button
+                size="icon"
+                className="rounded-l-none bg-green-700 shadow-xs hover:bg-green-800"
+              >
+                <Search className="size-5" />
               </Button>
             </div>
           </div>
