@@ -75,7 +75,7 @@ function Navbar() {
           />
 
           {/* sidebar */}
-          <div className="bg-background fixed top-0 left-0 z-50 h-full w-65 border-r shadow-lg md:w-90">
+          <div className="bg-card fixed top-0 left-0 z-50 h-full w-65 border-r shadow-lg md:w-90">
             <div className="flex h-16 items-center justify-center">
               <Link
                 to="/"
