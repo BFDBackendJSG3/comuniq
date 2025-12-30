@@ -135,7 +135,7 @@ function Navbar() {
                 Quem Somos
               </Link>
               <Link
-                to="/contact"
+                to="/contato"
                 className={
                   location.pathname === '/contact'
                     ? 'text-muted-foreground flex gap-1 border-b px-4 py-4'
