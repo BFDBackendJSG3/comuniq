@@ -7,6 +7,7 @@ function Login() {
         name="Login"
         description="Ainda não possui uma conta?"
         buttonName="Registrar-se"
+        routeTo="/cadastro"
       />
     </div>
   );

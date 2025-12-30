@@ -5,6 +5,7 @@ import { ThemeProvider } from './components/ThemeProvider';
 import Login from './pages/Login';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Register />} />
             <Route path="/sobre" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contato" element={<Contact />} />
           </Routes>
         </div>
       </div>
